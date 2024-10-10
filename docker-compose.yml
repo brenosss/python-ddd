@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: python-ddd
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   fastapi:
     build:
       context: .
@@ -13,3 +25,5 @@ services:
     volumes:
       - .:/app
     command: uvicorn interfaces.api.main:app --host 0.0.0.0 --port 8000 --reload
+volumes:
+  postgres_data:
