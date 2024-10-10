@@ -1,14 +1,16 @@
 [tool.poetry]
-name = "ddd"
+name = "python-ddd"
 version = "0.1.0"
 description = ""
 authors = ["brenosss <brenoe133@gmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.8"
 fastapi = "^0.115.0"
 SQLAlchemy = "^2.0.35"
+uvicorn = "^0.31.1"
 
 
 [build-system]
